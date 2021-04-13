@@ -10,28 +10,28 @@ reader.on('line', function (line) {
 }).on('close', function () {
 	let N = parseInt(input[0]);
 	let line = input[1];
-	let A = 0;
-	let B = 0;
+	let SumH = 0;
+	let SumM = 0;
 	let H = 0.5;
 	let M = 0.5;
-	console.log('line[i] is ', undefined,' and A is : ', A, ' and B is : ' , B, ' and H is : ' , H , ' and M is : ', M);
+	console.log('line[i] is ', undefined,' and SumH is : ', SumH, ' and SumM is : ' , SumM, ' and H is : ' , H , ' and M is : ', M);
 	for(let i = 0 ; i < N ; i++){
-		A += (H /= 2);
-		B += (M /= 2);
+		SumH += (H /= 2);
+		SumM += (M /= 2);
 		if(line[i] == 'H'){
 			H += 0.5;
 		}else{
 			M += 0.5;
 		}
-	console.log('line[i] is ', line[i],' and A is : ', A, ' and B is : ' , B, ' and H is : ' , H , ' and M is : ', M);
+	console.log('line[i] is ', line[i],' and SumH is : ', SumH - 0.25, ' and SumM is : ' , SumM - 0.25, ' and H is : ' , H , ' and M is : ', M);
 	}
 
   // console.log(1 + 37 / 64 , 59 / 64)
 	
 
-	if(A > B){
+	if(SumH > SumM){
 		console.log('H');
-	}else if(A < B){
+	}else if(SumH < SumM){
 		console.log('M');
 	}else{
 		console.log('HM');
